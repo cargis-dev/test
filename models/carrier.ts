@@ -13,20 +13,20 @@ module.exports = (sequelize: any, DataTypes: any) => {
          * The `models/index` file will call this method automatically.
          */
         id!: number;
-        name!: string;
-        inn!: string;
-        codeATI!: string;
-        address!: string;
+        carrierName!: string;
+        carrierInn!: string;
+        carrierCodeATI!: string;
+        carrierAddress!: string;
         phone!: string;
         contact!: string;
         email!: string;
         taxSystem!: TaxSystem;
-        status!: 0 | 1;
+        carrierStatus!: 0 | 1;
         loadRegions!: string;
         loadCities!: string;
-        unloadRegions!: string;
+        carrierUnloadRegions!: string;
         unloadCities!: string;
-        additional!: string;
+        carrierAdditional!: string;
         static associate(models: any) {
             models.Carrier.belongsTo(models.User, { as: "creator" });
             models.Carrier.hasMany(models.Transport);
@@ -41,19 +41,19 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 allowNull: false,
                 primaryKey: true,
             },
-            name: {
+            carrierName: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            inn: {
+            carrierInn: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            codeATI: {
+            carrierCodeATI: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            address: {
+            carrierAddress: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -74,7 +74,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 allowNull: false,
                 values: ["С НДС", "Без НДС", "С ндс и без НДС"],
             },
-            status: {
+            carrierStatus: {
                 type: DataTypes.TINYINT,
                 allowNull: false,
             },
@@ -86,7 +86,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            unloadRegions: {
+            carrierUnloadRegions: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -94,7 +94,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            additional: {
+            carrierAdditional: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },

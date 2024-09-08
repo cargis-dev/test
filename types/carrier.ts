@@ -1,10 +1,10 @@
 export type TaxSystem = "С НДС" | "Без НДС" | "С ндс и без НДС";
 
 export interface CarrierPersonal {
-    name: string;
-    inn?: string;
-    codeATI?: string;
-    address: string;
+    carrierName: string;
+    carrierInn?: string;
+    carrierCodeATI?: string;
+    carrierAddress: string;
     phone: string;
     contact?: string;
     email?: string;
@@ -12,12 +12,12 @@ export interface CarrierPersonal {
 }
 
 export type CarrierAdditional = {
-    status: 0 | 1;
+    carrierStatus: 0 | 1;
     loadRegions: string;
     loadCities?: string;
-    unloadRegions: string;
+    carrierUnloadRegions: string;
     unloadCities?: string;
-    additional?: string;
+    carrierAdditional?: string;
 };
 
 export type CarrierService = {
