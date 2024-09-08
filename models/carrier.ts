@@ -13,20 +13,20 @@ module.exports = (sequelize: any, DataTypes: any) => {
          * The `models/index` file will call this method automatically.
          */
         id!: number;
-        name!: string;
-        inn!: string;
+        userName!: string;
+        userInn!: string;
         codeATI!: string;
-        address!: string;
+        userAddress!: string;
         phone!: string;
-        contact!: string;
+        userContact!: string;
         email!: string;
         taxSystem!: TaxSystem;
-        status!: 0 | 1;
+        userStatus!: 0 | 1;
         loadRegions!: string;
         loadCities!: string;
         unloadRegions!: string;
         unloadCities!: string;
-        additional!: string;
+        userAdditional!: string;
         static associate(models: any) {
             models.Carrier.belongsTo(models.User, { as: "creator" });
             models.Carrier.hasMany(models.Transport);
@@ -44,6 +44,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,
+                unique: true,
             },
             inn: {
                 type: DataTypes.STRING,
