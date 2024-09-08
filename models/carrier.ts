@@ -35,6 +35,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
     Carrier.init(
         {
+            onlyDevelop: true,
+        },
+        {
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
